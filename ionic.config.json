@@ -1,0 +1,7 @@
+{
+  "name": "Practicas Tecnica LancerGroup",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
