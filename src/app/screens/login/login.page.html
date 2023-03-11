@@ -1,0 +1,31 @@
+<ion-content fullscreen="true">
+  <div class="container" >
+
+    <div class="imagenContainer">
+       <ion-img src="assets/fondo login.png" alt="" ></ion-img>
+    </div>
+
+  <div class="listContent">
+    <ion-list class="itemList">
+      <ion-item class="item">
+        <ion-icon slot="start" name="log-in-outline" class="icon"></ion-icon>
+        <ion-label position="floating" class="font">Email or User</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="key-outline" class="icon"></ion-icon>
+        <ion-label position="floating" class="font">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+      </ion-item>
+      </ion-list>
+        <div class="linkregistro">
+         <ion-label >Forgot password?</ion-label>
+       </div> 
+       <ion-button (click)="login()">Login</ion-button>
+ 
+  </div>
+  <div class="crearCuenta" routerLink="/register">
+    <ion-label >Don't have account? <strong> Sing Up</strong></ion-label>
+</div>
+</div>
+</ion-content>

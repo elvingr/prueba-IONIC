@@ -1,0 +1,22 @@
+
+<ion-content fullscreen="true">
+<div class="container">
+  <ion-img src="./assets/fondo gps 3.png"></ion-img>
+
+  <div class='containerImg'>
+  <ion-label class="font2"><strong>Esta es su Ubicacion GPS</strong></ion-label>
+  <ion-label class="font">Latitude: {{latitude}}</ion-label>
+  <ion-label class="font">Longitud: {{longitude}}</ion-label>
+    <ion-button (click)="asignarVariable()">
+      continuar y enviar
+    </ion-button>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="obtenerLocation()">
+    <ion-fab-button>
+      <ion-icon name="location-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+
+</ion-content>
+

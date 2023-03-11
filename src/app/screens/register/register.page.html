@@ -1,0 +1,64 @@
+
+<ion-content fullscreen="true">
+  <div class="container">
+    <div class="newFrom2">
+      <div class="imagenContainer">
+        <ion-img src="assets/fondo registro.png" alt="" ></ion-img>
+     </div>
+    </div>
+
+
+   <div class="newForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="miFormulario" type="submit" >
+
+      <ion-list class="itemForm">
+        <ion-item class="item">
+          <ion-icon slot="start" name="person-add-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">User</ion-label>
+              <ion-input type="text" [(ngModel)]="user" formControlName="user"></ion-input>
+              <span  *ngIf="campoInvalido('user')" class="font0">Requerido, Max 20 caracteres</span>
+        </ion-item>
+        <ion-item class="item">
+          <ion-icon slot="start" name="person-add-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre" formControlName="name"></ion-input>
+          <span  *ngIf="campoInvalido('name')" class="font0">Requerido, Max 30 caracteres</span>
+        </ion-item>
+        <ion-item class="item">
+          <ion-icon slot="start" name="person-add-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Apellido</ion-label>
+          <ion-input type="text" [(ngModel)]="apellido" formControlName="lastname"></ion-input>
+          <span  *ngIf="campoInvalido('lastname')" class="font0">Requerido, Max 30 caracteres</span>
+        </ion-item>
+        <ion-item class="item">
+          <ion-icon slot="start" name="mail-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Correo</ion-label>
+          <ion-input type="email" [(ngModel)]="correo" formControlName="email"></ion-input>
+          <span  *ngIf="campoInvalido('email')" class="font0">Requerido, Ingrese un correo valido</span>
+        </ion-item>
+        <ion-item class="item">
+          <ion-icon slot="start" name="call-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Número de teléfono</ion-label>
+          <ion-input type="tel" [(ngModel)]="telefono" formControlName="phone"></ion-input>
+          <span  *ngIf="campoInvalido('phone')" class="font0">Requerido, 10 digitos</span>
+        </ion-item>
+        <ion-item class="item">
+          <ion-icon slot="start" name="key-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="contrasena" formControlName="password" onchange=""></ion-input>
+          <span *ngIf="campoInvalidoContrasena('password')" class="font0">Min 8 caracteres, mayúscula y número</span>
+        </ion-item>
+        <ion-item class="item">
+          <ion-icon slot="start" name="key-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Confirmación de contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="confirmacion" formControlName="password" ></ion-input>
+          <span *ngIf="campoInvalidoContrasena('password')" class="font0">Min 8 caracteres, mayúscula y número</span>
+        </ion-item> 
+      <ion-button type="submit" >Continue</ion-button>
+     
+    </ion-list>
+   </form>
+   </div>
+    
+  </div>
+</ion-content>

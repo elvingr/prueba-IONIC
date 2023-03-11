@@ -1,0 +1,114 @@
+.container{
+    width: 100%;
+    background-color: rgb(225, 234, 251);
+    //background-color: transparent;
+    height: 100%;
+    //position: absolute !important;
+    //top: 0px !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;   
+    flex-direction: column;
+    }
+
+
+    .labelcontainer{
+        display: flex;
+        width: auto;
+        height: 25%;
+        flex-direction: column;
+        margin: 50px;
+    }
+
+    .imagecontainer{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        justify-content: center;
+        align-items: center;
+        //background-color: rgb(0, 105, 152);
+        
+    }
+
+    .imagecontainer2{
+        display: flex;
+        width: 280px;
+        height: 280px;
+        background-color: rgb(0, 105, 152);
+        border-radius: 100%;
+        object-fit: contain;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .images{
+        background-repeat: no-repeat;
+        display: flex;
+        width: 97%;
+        height: 97%;
+        display: flex;
+        object-fit: cover;
+        border-radius: 100%;
+        overflow:hidden; //para que no se salga la imagen
+        //overflow: scroll;
+
+    }
+
+
+    .buttoncontainer{
+
+        display: flex;
+        width: auto;
+        height: 25%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        //z-index: 1;
+    }
+    ion-button {
+        width: 130px;
+        height: 28px;
+        position: relative;
+        bottom: 40px;
+        --background: rgb(0, 105, 152);
+        //--background-activated: #af3767;
+        //--background-activated-opacity: 1;
+        //--background-focused: #616e83;
+        // --background-focused-opacity: 1;
+        // --background-hover: #ff8e38;
+        // --background-hover-opacity: 1;
+        //--border-color: #3880ff;
+        --border-radius: 20px;
+        // --border-style: solid;
+        //S --border-width: 8px;
+        // --box-shadow: 10px 10px;
+        //S --color: #ffffff;
+        // --color-activated: #ffffff;
+        // --color-focused: #ffffff;
+        // --color-hover: #ffffff;
+        //--opacity: 1;
+        // --padding-bottom: 4px;
+        //  --padding-end: 4px;
+        //  --padding-start: 4px;
+        //  --padding-top: 4px;
+        // --ripple-color: #1e1e1e;
+        //--transition: background-color 15ms linear;
+        margin: 20px;
+        }
+
+        .font{
+            color: rgb(67, 77, 99);
+            font-size: xx-large;
+            margin-bottom: 20px;
+        }
+        .font2{
+            color: rgb(67, 77, 99);
+            font-size: larger;
+
+        }
+
+        .inputImage {
+            color: rgb(67, 77, 99);
+          }

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './screens/login/login.page';
+import { AuthGuard } from './guards/auth.guard';
+import { Auth2Guard } from './guards/auth2.guard';
 
 const routes: Routes = [
   {
@@ -8,9 +11,33 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path:'login',
+    loadChildren:() =>import ('./screens/login/login.module').then(m => m.LoginPageModule), canActivate:[AuthGuard]
+  },
+  {
+    path: 'gps',
+    loadChildren: () => import('./screens/gps/gps.module').then( m => m.GpsPageModule), canActivate:[AuthGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./screens/register/register.module').then( m => m.RegisterPageModule), canActivate:[AuthGuard]
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./screens/profile/profile.module').then( m => m.ProfilePageModule), canActivate:[Auth2Guard]
+  },
+  {
+    path: 'image-selector',
+    loadChildren: () => import('./screens/image-selector/image-selector.module').then( m => m.ImageSelectorPageModule), canActivate:[AuthGuard]
+  },
+  {
+    path: 'edit',
+    loadChildren: () => import('./screens/edit/edit.module').then( m => m.EditPageModule), canActivate:[Auth2Guard]
+  }
 ];
 
 @NgModule({
@@ -20,3 +47,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

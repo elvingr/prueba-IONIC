@@ -1,0 +1,46 @@
+
+<ion-content>
+  <div class="container">
+
+    <!-- contenedor del label -->
+    <div class="labelcontainer">
+      <ion-label class="font"><strong>Ya casi terminamos</strong></ion-label>
+      <ion-label class="font2">Ahora Seleciona tu imagen de perfil</ion-label>
+    </div>
+
+    <!-- contenedor de imagen -->
+
+    <div class="imagecontainer">
+      <div class="imagecontainer2">
+        <ion-img [src]="visualizacion64" alt="visualizacion64" class="images"></ion-img>
+      </div>
+    </div>
+
+    <!-- contenedor del boton -->
+    <div class="buttoncontainer">
+      
+      <ion-button
+      (click)="subirImagen()"
+      [disabled]="estado">
+        {{(estado)? 'Loading...':'Send'}}
+      </ion-button>
+
+      <input class="inputImage" type="file" (change)="capturarFile($event)" #fileUpload>
+    </div>
+
+
+
+
+
+<div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+</ion-content>
