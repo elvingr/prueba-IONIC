@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { DomRenderFn } from '@ionic/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
 import { AlertController } from '@ionic/angular';
-
-
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-image-selector',
@@ -16,19 +16,19 @@ import { AlertController } from '@ionic/angular';
 export class ImageSelectorPage  {
 
   image:any = './assets/fondo pelota.png';
-  capturarArchivo(event:any){
-    //console.log(event);
-  }
-
-  select(){}
-
-  constructor(private http:ServicioHTTPService, private sanitizer: DomSanitizer, private router:Router,private alertController: AlertController) {}
-
+  constructor(
+    private http:ServicioHTTPService, 
+    private sanitizer: DomSanitizer, 
+    private router:Router,
+    private alertController: AlertController,
+    ) {
+      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    }
+//variables
   visualizacion64:string= this.image;
   fileCapturado:any = [];
   fileName = '';
   estado:boolean=false;
-
 
   //capturar la imagen
   capturarFile(event:any):any{
@@ -40,10 +40,6 @@ export class ImageSelectorPage  {
     })
     this.fileName = file.name;
     this.fileCapturado.push(file)
-
-    console.log(event.target.files[0]);
-    console.log(this.fileName)
-    console.log( this.fileCapturado)
   }
 
   //convertir imagen a base 64
@@ -60,29 +56,38 @@ export class ImageSelectorPage  {
       reader.readAsDataURL(imagen);
     });
   }
-  
 
-  subirImagen(): any {
-      this.estado = true;
-      this.http.registerUser();
-      //console.log(this.http.User) 
+  //subir imagen y enviar datos 
+  continuar(): any {
+    if(this.visualizacion64 === this.image){
       this.presentAlert();
-      this.router.navigate(['./login']);
-      this.estado = false;
+    } else{
+      this.router.navigate(['./register']);
+    }
   }
-
+  //crear alerta para presentarla
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Alerta',
-      subHeader: 'Buenas noticias',
-      message: 'Su cuenta fue creada de manera exitosa!',
-      buttons: ['OK'],
-      
+      header: 'Alerta!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            //this.handlerMessage = 'Alert canceled';
+          },
+        },
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+            this.router.navigate(['./register']);
+          },
+        },
+      ],
+      subHeader: 'Foto por defecto?',
+      message: 'Esta seguro que quiere continuar con la foto por defecto?'
     });
     await alert.present();
   }
 }
-  
-
-
-

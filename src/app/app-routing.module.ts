@@ -33,10 +33,6 @@ const routes: Routes = [
   {
     path: 'image-selector',
     loadChildren: () => import('./screens/image-selector/image-selector.module').then( m => m.ImageSelectorPageModule), canActivate:[AuthGuard]
-  },
-  {
-    path: 'edit',
-    loadChildren: () => import('./screens/edit/edit.module').then( m => m.EditPageModule), canActivate:[Auth2Guard]
   }
 ];
 

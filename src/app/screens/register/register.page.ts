@@ -1,10 +1,12 @@
 
 import { Component } from '@angular/core';
-import { tick } from '@angular/core/testing';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
+import { AlertController } from '@ionic/angular';
+//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +14,18 @@ import { ServicioHTTPService } from '../../services/servicio-http.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage {
-  constructor(private fb:FormBuilder, private route: Router, private http: ServicioHTTPService) {}
+  constructor(
+    private fb:FormBuilder, 
+    private route: Router, 
+    private http: ServicioHTTPService, 
+    private alertC:AlertController,
+   // private screenOrientation: ScreenOrientation
+    ) {
+     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    }
 
+  //variables
+  validar:boolean=false;
   user:string='';
   nombre: string ='';
   apellido: string ='';
@@ -22,8 +34,9 @@ export class RegisterPage {
   contrasena: string ='';
   confirmacion: string ='';
 
+
+  //este es el formbuilder para manejar los formularios
   miFormulario:FormGroup = this.fb.group({
-    user: ['user',[Validators.required,Validators.maxLength(20)]],
     name: ['name',[Validators.required,Validators.maxLength(30)]],
     lastname: ['lastname',[Validators.required,Validators.maxLength(30)]],
     email: ['email',[Validators.required,Validators.email]],
@@ -31,35 +44,43 @@ export class RegisterPage {
     password: ['password',[Validators.required,Validators.minLength(8),Validators.maxLength(16),this.validarContrasena]]
   })
 
+  //validar campos
   campoInvalido(campo:string){
     return this.miFormulario.controls[campo].errors 
         && this.miFormulario.controls[campo].touched;
   }
 
+  //validar contrasenas
   campoInvalidoContrasena(campo:string){
     return this.miFormulario.controls[campo].hasError('contrasenaInvalida') 
         && this.miFormulario.controls[campo].errors 
         && this.miFormulario.controls[campo].touched ;
-
   }
 
+//enviar datos del formulario al endpoint
   onSubmit(){
     if(this.miFormulario.invalid){
       this.miFormulario.markAllAsTouched();
       return
     }  
     if (this.contrasena !== this.confirmacion) {
-      console.error("La contraseña y la confirmación no coinciden");
+      this.validar =true;
       return
-    }
-
-    this.asignarValores();
-    this.route.navigate(['./gps']);
-    //this.miFormulario.reset();
-    return
+    }   
+    this.asignarValores();//PASO 1
+    this.http.registerUser().subscribe(resp=>{//paso 2
+      if(resp.code === 2){
+        this.presentAlert();
+        return
+      }
+    })
+    this.route.navigate(['./gps']);   
+    this.validar =false;
+    this.miFormulario.reset();  
+    //return
   }
 
-
+//validar contrasena
  validarContrasena(control:any) {
     const tieneMayuscula = /[A-Z]/.test(control.value);
     const tieneNumero = /[0-9]/.test(control.value);
@@ -67,10 +88,10 @@ export class RegisterPage {
     if (!tieneMayuscula || !tieneNumero) {
       return { contrasenaInvalida: true };
     }
-  
     return null;
   }
   
+  //asignar valores
   asignarValores(){
     this.http.User.userName = this.nombre +' '+ this.apellido;
     this.http.User.userEmail= this.correo;
@@ -78,6 +99,13 @@ export class RegisterPage {
     this.http.User.userPassword = this.contrasena;
   }
 
-
-
+  async presentAlert() {
+    const alert = await this.alertC.create({
+      header: 'Alerta',
+      subHeader: 'La cuenta ya exite!',
+      message: 'Intente usar otro correo',
+      buttons: ['OK'],  
+    });
+    await alert.present();
+  }
 }

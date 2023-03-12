@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
+import { Router } from '@angular/router';
+//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 
 @Component({
   selector: 'app-profile',
@@ -8,18 +10,19 @@ import { ServicioHTTPService } from '../../services/servicio-http.service';
 })
 export class ProfilePage  {
 
-  constructor(private http:ServicioHTTPService) {
-    //this.user = this.http.User.UserId;
-    
+  constructor(
+    //private http:ServicioHTTPService, 
+    private route:Router,
+    //private screenOrientation: ScreenOrientation
+    ) {
     this.nombre = localStorage.getItem('nombre') ||'';
     this.correo = localStorage.getItem('email') ||'';
     this.telefono = localStorage.getItem('telefono') || '';
-    //this.contrasena = this.http.User.userPassword;
     this.gps = localStorage.getItem('gps') || '' ;
-    this.img64 = localStorage.getItem('imagen') || '';
+    this.img64 = localStorage.getItem('imagen') || './assets/fondo pelota.png';
+   // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
-  image:any = './assets/fondo pelota.png';
-  user:string='';
+
   nombre: string ='';
   apellido: string ='';
   correo: string ='';
@@ -28,8 +31,9 @@ export class ProfilePage  {
   gps:string='';
   img64:string='';
 
-  onClick(){
+  cerrarSecion(){
     localStorage.setItem('estadoLicencia','false');
+    this.route.navigate(['./login'])  
   }
 
 }

@@ -93,3 +93,17 @@ margin: 20px;
     height: 200px;  
 }
 
+@media all and (orientation:landscape){
+    .boton{
+        width: 70%;
+        height: 70%;
+        font-size: 24px;        
+    }
+}
+@media all and (orientation:portrait){
+    .boton{
+        width: 80%;
+        height: 40%;
+        font-size: 24px;        
+    }
+}

@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
 
 export class ServicioHTTPService {
 
-  User = {
+  User: UserInterface = {
     "userPassword": '',
     "userEmail": '',
     "userName": '',  
@@ -47,12 +47,6 @@ export class ServicioHTTPService {
   //resgistrar usuariios
    registerUser() {
       return this.http.post<any>(this.apiUrl, this.User,this.httpOptions)
-      .subscribe( (resp:any)=>{
-      console.log(resp);
-    },
-    (error) => {
-      console.error('Ha ocurrido un error:', error);
-    });
   }
 
   //hacer login
@@ -66,4 +60,12 @@ export class ServicioHTTPService {
 
 }
 
-
+//interfaz a mover para un archivo aparte de interfaces
+interface UserInterface {
+  userPassword    : string,
+  userEmail       : string,
+  userName        : string,  
+  userPhoneNumber : string,
+  type            : string,
+  userProfilePic  : string, 
+}

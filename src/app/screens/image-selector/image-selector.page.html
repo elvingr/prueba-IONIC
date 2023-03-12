@@ -4,15 +4,15 @@
 
     <!-- contenedor del label -->
     <div class="labelcontainer">
-      <ion-label class="font"><strong>Ya casi terminamos</strong></ion-label>
-      <ion-label class="font2">Ahora Seleciona tu imagen de perfil</ion-label>
+      <ion-label class="font"><strong>Antes de iniciar con el registro</strong></ion-label>
+      <ion-label class="font2">Seleciona una imagen de perfil</ion-label>
     </div>
 
     <!-- contenedor de imagen -->
 
     <div class="imagecontainer">
       <div class="imagecontainer2">
-        <ion-img [src]="visualizacion64" alt="visualizacion64" class="images"></ion-img>
+        <ion-img [src]="visualizacion64" alt="visualizacion64" class="images" (click)="fileUpload.click()"></ion-img>
       </div>
     </div>
 
@@ -20,9 +20,9 @@
     <div class="buttoncontainer">
       
       <ion-button
-      (click)="subirImagen()"
+      (click)="continuar()"
       [disabled]="estado">
-        {{(estado)? 'Loading...':'Send'}}
+        {{(estado)? 'Loading...':'Continuar'}}
       </ion-button>
 
       <input class="inputImage" type="file" (change)="capturarFile($event)" #fileUpload>

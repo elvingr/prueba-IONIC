@@ -12,12 +12,12 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="miFormulario" type="submit" >
 
       <ion-list class="itemForm">
-        <ion-item class="item">
+        <!-- <ion-item class="item">
           <ion-icon slot="start" name="person-add-outline" class="icon"></ion-icon>
           <ion-label position="floating" class="font">User</ion-label>
               <ion-input type="text" [(ngModel)]="user" formControlName="user"></ion-input>
               <span  *ngIf="campoInvalido('user')" class="font0">Requerido, Max 20 caracteres</span>
-        </ion-item>
+        </ion-item> -->
         <ion-item class="item">
           <ion-icon slot="start" name="person-add-outline" class="icon"></ion-icon>
           <ion-label position="floating" class="font">Nombre</ion-label>
@@ -52,7 +52,7 @@
           <ion-icon slot="start" name="key-outline" class="icon"></ion-icon>
           <ion-label position="floating" class="font">Confirmación de contraseña</ion-label>
           <ion-input type="password" [(ngModel)]="confirmacion" formControlName="password" ></ion-input>
-          <span *ngIf="campoInvalidoContrasena('password')" class="font0">Min 8 caracteres, mayúscula y número</span>
+          <span *ngIf="validar" class="font0">La contrasena debe conincidir</span>
         </ion-item> 
       <ion-button type="submit" >Continue</ion-button>
      
