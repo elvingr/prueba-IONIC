@@ -3,9 +3,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
-//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-gps',
@@ -21,9 +19,9 @@ export class GpsPage  {
     private router:Router, 
     private http:ServicioHTTPService,
     private alertC:AlertController,
-    //private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation
     ) {
-    //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.platform.ready().then(async () => {
       this.obtenerLocation();     
     })

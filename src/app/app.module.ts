@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage-angular';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx'
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     exports:
     [
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ScreenOrientation],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

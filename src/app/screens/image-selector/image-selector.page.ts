@@ -3,10 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
 import { AlertController } from '@ionic/angular';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
-//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-image-selector',
@@ -21,8 +18,9 @@ export class ImageSelectorPage  {
     private sanitizer: DomSanitizer, 
     private router:Router,
     private alertController: AlertController,
+    private screenOrientation: ScreenOrientation
     ) {
-      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 //variables
   visualizacion64:string= this.image;

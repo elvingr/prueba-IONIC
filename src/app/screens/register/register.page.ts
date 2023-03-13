@@ -4,10 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
 import { AlertController } from '@ionic/angular';
-
-//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
-//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-register',
@@ -20,9 +17,9 @@ export class RegisterPage {
     private route: Router, 
     private http: ServicioHTTPService, 
     private alertC:AlertController,
-   // private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation
     ) {
-     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
   //variables

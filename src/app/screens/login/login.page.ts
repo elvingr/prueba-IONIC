@@ -4,10 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
-//import { BiometryType, NativeBiometric } from "capacitor-native-biometric";
-//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-//import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -20,14 +17,14 @@ export class LoginPage  {
     private http:ServicioHTTPService, 
     private route:Router,
     private toast:ToastController,
-    private huellas: FingerprintAIO
-   // private screenOrientation: ScreenOrientation
+    private huellas: FingerprintAIO,
+    private screenOrientation: ScreenOrientation
     ) { 
-     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    //console.log( this.performBiometricVerificatin());
-
-    this.llamarHuella()
+     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    localStorage.setItem('activarHuella', 'true');
+    this.llamarHuella();
     }
+
   //  lamar a las huelas digitales
   LectorHuella(){
     this.huellas.show({
@@ -44,10 +41,13 @@ export class LoginPage  {
 
   //llamar al lector de las huellas
   llamarHuella(){
+    if(localStorage.getItem('activarHuella') === 'false'){
+      return
+    }
     if(localStorage.getItem('primerUsohuella') == 'activo'){
       this.LectorHuella();
     }else{
-      this.presentToast('middle','Para usar la huella dactilar, es necesario iniciar sesion de manera normal la primera vez',2000);
+      this.presentToast('middle','Para usar la huella dactilar, es necesario iniciar sesion de manera normal la primera vez',3000);
     }
   }
 

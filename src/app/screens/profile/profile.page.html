@@ -36,7 +36,7 @@
         </ion-item>
         <ion-item class="item">
           <ion-label class="font2">Huella Dactilar</ion-label>
-          <ion-toggle slot="end" [checked]="true" ></ion-toggle>
+          <ion-toggle slot="end" [checked]="clambioToggle" (ionChange)="clambioToggle($event)"></ion-toggle>
         </ion-item>
         <div class="itembutton">
           <ion-button (click)="cerrarSecion()">Cerrar Sesion</ion-button>
