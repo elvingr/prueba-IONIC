@@ -4,28 +4,31 @@
     <div class="imagenContainer">
        <ion-img src="assets/fondo login.png" alt="" ></ion-img>
     </div>
-
   <div class="listContent">
-    <ion-list class="itemList">
-      <ion-item class="item">
-        <ion-icon slot="start" name="log-in-outline" class="icon"></ion-icon>
-        <ion-label position="floating" class="font">Email or User</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon slot="start" name="key-outline" class="icon"></ion-icon>
-        <ion-label position="floating" class="font">Password</ion-label>
-        <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
-      </ion-item>
-      </ion-list>
-        <div class="linkregistro">
-         <ion-label >Forgot password?</ion-label>
-       </div> 
-       <ion-button (click)="login()">Login</ion-button>
- 
+    <form (ngSubmit)="login()" [formGroup]="miFormulario" type="submit" >
+      <ion-list class="itemList">
+        <ion-item class="item">
+          <ion-icon slot="start" name="log-in-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Email</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario" formControlName="email"></ion-input>
+          <span  *ngIf="campoInvalido('email')" class="font0">Ingrese un correo valido</span>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="key-outline" class="icon"></ion-icon>
+          <ion-label position="floating" class="font">Contrasena</ion-label>
+          <ion-input type="password" [(ngModel)]="contrasena" formControlName="password"></ion-input>
+          <span *ngIf="campoInvalido('password')" class="font0">Min 8 caracteres, mayúscula y número</span>
+        </ion-item>
+        </ion-list>
+          <div class="linkregistro">
+           <ion-label >Olvidaste tu contrasena?</ion-label>
+         </div> 
+         <ion-button type="submit">Iniciar sesion</ion-button>
+    </form>
+    <ion-icon class="huella" name="finger-print-outline" slot="end" (click)="llamarHuella()"></ion-icon>
   </div>
   <div class="crearCuenta" routerLink="/image-selector">
-    <ion-label >Don't have account? <strong> Sing Up</strong></ion-label>
+    <ion-label >No tienes una cuenta? <strong> Registrate</strong></ion-label>
 </div>
 </div>
 </ion-content>

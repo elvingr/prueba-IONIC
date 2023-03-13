@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServicioHTTPService } from '../../services/servicio-http.service';
 import { AlertController } from '@ionic/angular';
+
 //import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 //import { ScreenOrientation } from '@ionic-native/screen-orientation';
 //import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';

@@ -65,30 +65,33 @@ ion-button {
     width: 180px;
     height: 28px;
     --background: rgb(0, 105, 152);
-    //--background-activated: #af3767;
-    //--background-activated-opacity: 1;
-    //--background-focused: #616e83;
-   // --background-focused-opacity: 1;
-   // --background-hover: #ff8e38;
-   // --background-hover-opacity: 1;
-    //--border-color: #3880ff;
     --border-radius: 20px;
-   // --border-style: solid;
-   //S --border-width: 8px;
-   // --box-shadow: 10px 10px;
-   //S --color: #ffffff;
-   // --color-activated: #ffffff;
-   // --color-focused: #ffffff;
-   // --color-hover: #ffffff;
-    //--opacity: 1;
-   // --padding-bottom: 4px;
-  //  --padding-end: 4px;
-  //  --padding-start: 4px;
-  //  --padding-top: 4px;
-   // --ripple-color: #1e1e1e;
-    //--transition: background-color 15ms linear;
 margin: 20px;
 }
+
+ion-toggle {
+    height: 12px;
+    width: 50px;
+    padding: 2px;
+  
+    --background: #969393;
+    --background-checked: #969393;
+  
+    --handle-background: #eb6657;
+    --handle-background-checked: rgb(0, 105, 152);;
+  
+    --handle-width: 26px;
+    --handle-height: 27px;
+    --handle-max-height: auto;
+    --handle-spacing: 2px;
+  
+    --handle-border-radius: 15px;
+    --handle-box-shadow: none;
+  
+    /* Required for iOS handle to overflow the height of the track */
+    overflow: visible;
+    contain: none;
+  }
 
 
 .linkregistro{
@@ -162,6 +165,7 @@ margin: 20px;
     display: flex;
     justify-content: right;
     align-items: center;
+    flex-direction: column;
 
 }
 

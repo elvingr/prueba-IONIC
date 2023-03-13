@@ -20,7 +20,7 @@ export class ProfilePage  {
     this.telefono = localStorage.getItem('telefono') || '';
     this.gps = localStorage.getItem('gps') || '' ;
     this.img64 = localStorage.getItem('imagen') || './assets/fondo pelota.png';
-   // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   nombre: string ='';
@@ -34,6 +34,10 @@ export class ProfilePage  {
   cerrarSecion(){
     localStorage.setItem('estadoLicencia','false');
     this.route.navigate(['./login'])  
+  }
+
+  clambio(event:any){
+
   }
 
 }

@@ -1,6 +1,5 @@
 
 
-
 .container{
 width: 100%;
 background-color: rgb(225, 234, 251);
@@ -12,11 +11,12 @@ text-align: center;
 flex-direction: column;
 }
 
-
-.itemForm{
-background-color: rgb(225, 234, 251);  
-width: auto;
-height: 100%;
+.listItem{
+    position: relative;
+    background-color: rgb(225, 234, 251);  
+    width: auto;
+    height: 90%;
+    top: -30px;
 }
 
 .item{
@@ -25,8 +25,7 @@ height: 100%;
 }
 .font0{
     color: rgb(225, 54, 19);
-    font-size: x-small;
-    
+    font-size: x-small;    
 }
 
 .font{
@@ -41,70 +40,34 @@ ion-input{
 --color: rgb(67, 77, 99);
 --placeholder-opacity: .1;
 }
+
 ion-button {
 width: 120px;
 height: 28px;
 --background: rgb(0, 105, 152);
-//--background-activated: #af3767;
-//--background-activated-opacity: 1;
-//--background-focused: #616e83;
-// --background-focused-opacity: 1;
-// --background-hover: #ff8e38;
-// --background-hover-opacity: 1;
-//--border-color: #3880ff;
 --border-radius: 20px;
-// --border-style: solid;
-//S --border-width: 8px;
-// --box-shadow: 10px 10px;
-//S --color: #ffffff;
-// --color-activated: #ffffff;
-// --color-focused: #ffffff;
-// --color-hover: #ffffff;
-//--opacity: 1;
-// --padding-bottom: 4px;
-//  --padding-end: 4px;
-//  --padding-start: 4px;
-//  --padding-top: 4px;
-// --ripple-color: #1e1e1e;
-//--transition: background-color 15ms linear;
 margin: 20px;
 }
 
-.crearCuenta{
-position: absolute;
-bottom: 25px;
-color: rgb(0, 105, 152);
-}
-
 .imagenContainer{
-    border-radius: 20px;
-    width: 100%;
-    height: 25%;  
+    position: absolute;
+    top: 0px;
+    width: auto;
+    height: 180px;    
 }
 
-.newForm{
-    background-color: rgb(225, 234, 251);  
-    width: 85%;
-    height: 100%;  
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-
+.listContent{
+    overflow: scroll;
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 200px;  
+    bottom: 0px;
 }
 
-.newForm2{
-
-    width: 85%;
-    height: 30%;  
-    border-radius: 20px;
-
-
-}
-.col{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
+.expand{
+    width: auto;
+    height: 10px;
 }
 
 

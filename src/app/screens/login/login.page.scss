@@ -1,10 +1,7 @@
 .container{
     width: 100%;
     background-color: rgb(225, 234, 251);
-    //background-color: transparent;
     height: 100%;
-    //position: absolute !important;
-    //top: 0px !important;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -12,13 +9,18 @@
     flex-direction: column;
 }
 
+.imagenContainer{
+    position: absolute;
+    top: 0px;
+    width: auto;
+    height: 200px; 
+}
+
 .listContent{
     position: absolute;
     width: 80%;
     height: auto;
-    background-color: rgb(225, 234, 251);
-    top: 250px;
-    
+    top: 200px;   
  }
 
  .itemList{
@@ -26,11 +28,14 @@
  }
 
  .item{
-    //background-color: rgb(225, 234, 251);
     --background: rgb(225, 234, 251);
  }
 
-
+ .font0{
+    color: rgb(225, 54, 19);
+    font-size: x-small;
+    
+}
 .font{
     color: rgb(67, 77, 99);
 }
@@ -44,41 +49,18 @@ ion-input{
     --placeholder-opacity: .1;
 }
 ion-button {
-    width: 100px;
+    width: 150px;
     height: 28px;
     --background: rgb(0, 105, 152);
-    //--background-activated: #af3767;
-    //--background-activated-opacity: 1;
-    //--background-focused: #616e83;
-   // --background-focused-opacity: 1;
-   // --background-hover: #ff8e38;
-   // --background-hover-opacity: 1;
-    //--border-color: #3880ff;
     --border-radius: 20px;
-   // --border-style: solid;
-   //S --border-width: 8px;
-   // --box-shadow: 10px 10px;
-   //S --color: #ffffff;
-   // --color-activated: #ffffff;
-   // --color-focused: #ffffff;
-   // --color-hover: #ffffff;
-    //--opacity: 1;
-   // --padding-bottom: 4px;
-  //  --padding-end: 4px;
-  //  --padding-start: 4px;
-  //  --padding-top: 4px;
-   // --ripple-color: #1e1e1e;
-    //--transition: background-color 15ms linear;
 margin: 20px;
 }
-
 
 .linkregistro{
     width: 280px;
     text-align: end;
     color: rgb(0, 105, 152);
-    z-index:1;
-    
+    z-index:1; 
 }
 .crearCuenta{
     position: absolute;
@@ -86,24 +68,11 @@ margin: 20px;
     color: rgb(0, 105, 152);
 }
 
-.imagenContainer{
-    position: absolute;
-    top: 0px;
-    width: auto;
-    height: 200px;  
-}
+.huella{
+    
+    color: rgb(67, 77, 99);
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
 
-@media all and (orientation:landscape){
-    .boton{
-        width: 70%;
-        height: 70%;
-        font-size: 24px;        
-    }
-}
-@media all and (orientation:portrait){
-    .boton{
-        width: 80%;
-        height: 40%;
-        font-size: 24px;        
-    }
 }

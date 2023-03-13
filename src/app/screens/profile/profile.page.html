@@ -3,25 +3,19 @@
   <div class="container">
 
     <div class="imagenContainer">
-      <ion-label class="font2"><strong>Profile</strong></ion-label>
+      <ion-label class="font2"><strong>Perfil</strong></ion-label>
       <div class="imagecontainer2">
         <ion-img [src]="img64" class="image"></ion-img>
       </div>
-
   </div>
-
 
     <div class="dataContainer">
       <ion-list class="itemList">
         <ion-list-header>
-          <ion-label class="font3"><strong>Information</strong></ion-label>
+          <ion-label class="font3"><strong>Informacion</strong></ion-label>
         </ion-list-header>
-        <!-- <ion-item class="item">
-          <ion-label class="font2">User</ion-label>
-          <ion-label slot='end' class="font2">{{user}}</ion-label>
-        </ion-item> -->
         <ion-item class="item">
-          <ion-label class="font2">Name</ion-label>
+          <ion-label class="font2">Nombre</ion-label>
           <ion-label slot='end' class="font2">{{nombre}}</ion-label>
         </ion-item>
         <ion-item class="item">
@@ -29,16 +23,20 @@
           <ion-label slot='end' class="font2">{{correo}}</ion-label>
         </ion-item>
         <ion-item class="item">
-          <ion-label class="font2">Phone Number</ion-label>
+          <ion-label class="font2">Telefono</ion-label>
           <ion-label slot='end' class="font2">{{telefono}}</ion-label>
         </ion-item>
         <ion-item class="item">
-          <ion-label class="font2">Password</ion-label>
+          <ion-label class="font2">Contrasena</ion-label>
           <ion-label slot='end' class="font2">{{contrasena}}</ion-label>
         </ion-item>
         <ion-item class="item">
           <ion-label class="font2">GPS</ion-label>
           <ion-label slot='end' class="font2">{{gps}}</ion-label>
+        </ion-item>
+        <ion-item class="item">
+          <ion-label class="font2">Huella Dactilar</ion-label>
+          <ion-toggle slot="end" [checked]="true" ></ion-toggle>
         </ion-item>
         <div class="itembutton">
           <ion-button (click)="cerrarSecion()">Cerrar Sesion</ion-button>
